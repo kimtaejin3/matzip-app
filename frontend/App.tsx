@@ -5,21 +5,17 @@
  * @format
  */
 
+import { NavigationContainer } from '@react-navigation/native';
 import React, { useState } from 'react';
 import {
-  Button,
   SafeAreaView,
   StyleSheet,
   Text,
   TextInput,
-  useColorScheme,
   View,
 } from 'react-native';
-
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
-
+import AuthHomeScreen from './src/screens/AuthHomeScreen';
+import AuthStackNavigator from './src/navigation/AuthStackNavigator';
 
 function App(): JSX.Element {
   const [name, setName] = useState('');
@@ -30,13 +26,9 @@ function App(): JSX.Element {
 
   return (
     //노치 영역을 침범하지 않음
-    <SafeAreaView style={styles.container}>
-      <View style={styles.inputContainer}>
-        <Text>텍스트</Text>
-        <TextInput style={styles.input} value={name} onChangeText={handleChangeInput}/>
-      </View>
-     
-    </SafeAreaView>
+    <NavigationContainer>
+      <AuthStackNavigator/>
+    </NavigationContainer>
   );
 }
 
