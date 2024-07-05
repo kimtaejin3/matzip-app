@@ -30,11 +30,14 @@ function App(): JSX.Element {
 
   return (
     //노치 영역을 침범하지 않음
-    <SafeAreaView>
-      <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.inputContainer}>
+        <TextInput style={styles.input}/>
         <Text>텍스트</Text>
-        <Button title="버튼이름" onPress={()=>console.log('clicked!')}/>
-        <TextInput/>
+      </View>
+      <View style={styles.inputContainer}>
+        <TextInput style={styles.input}/>
+        <Text>텍스트</Text>
       </View>
     </SafeAreaView>
   );
@@ -42,8 +45,23 @@ function App(): JSX.Element {
 
 const styles = StyleSheet.create({
   container:{
-    margin:10,
-    backgroundColor: 'red'
+    backgroundColor: 'yellow',
+    flex:1,
+  },
+
+  input:{
+    borderWidth: 2,
+    borderColor: 'black',
+    width: 100,
+    height: 100,
+    flex:1,
+  },
+
+  inputContainer:{
+    flex:1,
+    flexDirection:'row',
+    alignItems:'center',
+    backgroundColor:'red'
   }
 });
 
