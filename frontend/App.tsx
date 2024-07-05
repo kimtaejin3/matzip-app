@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Button,
   SafeAreaView,
@@ -22,38 +22,33 @@ import {
 
 
 function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+  const [name, setName] = useState('');
+  const handleChangeInput = (text: string) => {
+    console.log(text)
+    setName(text)
+  }
 
   return (
     //노치 영역을 침범하지 않음
     <SafeAreaView style={styles.container}>
       <View style={styles.inputContainer}>
-        <TextInput style={styles.input}/>
         <Text>텍스트</Text>
+        <TextInput style={styles.input} value={name} onChangeText={handleChangeInput}/>
       </View>
-      <View style={styles.inputContainer}>
-        <TextInput style={styles.input}/>
-        <Text>텍스트</Text>
-      </View>
+     
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container:{
-    backgroundColor: 'yellow',
     flex:1,
   },
 
   input:{
     borderWidth: 2,
-    borderColor: 'black',
     width: 100,
-    height: 100,
+    height: 50,
     flex:1,
   },
 
@@ -61,7 +56,6 @@ const styles = StyleSheet.create({
     flex:1,
     flexDirection:'row',
     alignItems:'center',
-    backgroundColor:'red'
   }
 });
 
