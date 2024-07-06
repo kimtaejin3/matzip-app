@@ -1,6 +1,7 @@
 const authNavigations = {
   AUTH_HOME: 'AuthHome',
-  Login: 'Login',
+  LOGIN: 'Login',
+  SIGNUP: 'SignUp',
 } as const;
 
 export {authNavigations};
